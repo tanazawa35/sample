@@ -1,0 +1,357 @@
+/*——————————————————————————————
+
+  basic
+
+——————————————————————————————*/
+
+/*
+  character code
+——————————————————————————————*/
+
+@charset "utf-8"; 
+
+/*
+  compass
+——————————————————————————————*/
+
+@import "compass";
+
+/*
+  font size
+——————————————————————————————*/
+
+html {
+  font-size: 62.5%;
+}
+
+@mixin fontsize($size: 24, $base: 10) {
+  font-size: $size + px;
+  font-size: ($size / $base) * 1rem;
+}
+
+/*
+  font
+——————————————————————————————*/
+
+$ja_font : "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", メイリオ, Verdana, "ＭＳ Ｐゴシック", sans-serif;
+
+/*
+  collor
+——————————————————————————————*/
+
+$base_color : #f9f8f6;
+$sub_color : #887f69;
+$hover : #6E6754;
+
+/*——————————————————————————————
+
+  body
+
+——————————————————————————————*/
+
+body {
+  background-color: $base_color;
+}
+
+/*
+  header
+——————————————————————————————*/
+
+header {
+  background-color: $base_color;
+  padding: 1em 0;
+  
+  .nav-item {
+    @include fontsize(16);
+    color: $sub_color;
+  }
+}
+
+/*
+  footer
+——————————————————————————————*/
+
+footer {
+  border-top: 1px solid $sub_color;
+  padding: 2em 0;
+  
+  .footer-nav {
+    text-align: center;
+    
+    &__text {
+    @include fontsize(14);
+    color: rgba(0,0,0,.5);
+    padding: 0 .5em;
+    text-decoration: none;
+    
+      &:hover {
+        color: rgba(0,0,0,.7);
+      }
+    }
+  }
+  
+  .copy {
+    @include fontsize(12);
+    color: #b8b4ac;
+    text-align: center;
+  }
+}
+
+/*——————————————————————————————
+
+  bem
+
+——————————————————————————————*/
+
+/*
+  item
+——————————————————————————————*/
+
+.item {
+  background-color: #fff;
+  height: 100%;
+  padding: 1.5em;
+
+  &__img {
+    padding-bottom: 1em;
+    
+  }
+  
+  &__text {
+    @include fontsize(14);
+  }
+  
+}
+
+/*
+  info-list
+——————————————————————————————*/
+
+.info-list {
+  padding: 1.5em 1em 0;
+  
+  &__title {
+    @include fontsize(14);
+    color: $sub_color;
+    font-weight: bold;
+  }
+  
+  &__text {
+    @include fontsize(14);
+  }
+}
+
+/*
+  info
+——————————————————————————————*/
+
+.info {
+  background-color: #fff;
+  border-bottom: 10px solid $base_color;
+  height: 100%;
+  padding: 1.5em;
+  
+  &__title {
+    @include fontsize(16);
+    color: $sub_color;
+    font-weight: bold;
+    margin: 0;
+    text-align: center;
+  }
+  
+  &__img {
+    padding: 1em 0;
+    
+  }
+  
+  &__text {
+    @include fontsize(12);
+  }
+  
+  &__button {
+    @include fontsize(12);
+    background-color: $sub_color;
+    border: none;
+    border-radius: 20px;
+    color: #fff;
+    display: block;
+    margin: 0 auto;
+    padding: .4em;    
+    text-align: center;    
+    text-decoration: none;
+    width: 60%;
+    
+    &:hover {
+      background-color: $hover;
+      color: #fff;
+      text-decoration: none;
+    }
+  }
+}
+
+/*——————————————————————————————
+
+  other
+
+——————————————————————————————*/
+
+.category-title {
+  color: $sub_color;
+  margin: 0;
+  padding: 1em;
+}
+
+/*——————————————————————————————
+
+  bootstrap
+
+——————————————————————————————*/
+
+.no-gutters {
+  margin:0;
+  padding:0;
+}
+
+/*
+  carousel-caption (sp-cover)
+——————————————————————————————*/
+
+.sp-cover {
+    
+  .carousel-caption {
+    
+    h3 {
+      @include fontsize(20);
+    }
+    
+    p {
+      @include fontsize(14);
+    }
+  }
+}
+
+/*
+  carousel-caption (pc-cover)
+——————————————————————————————*/
+
+.pc-cover {
+    
+  .carousel-caption {
+    
+    h3 {
+      @include fontsize(30);
+    }
+    
+    p {
+      @include fontsize(16);
+    }
+  }
+}
+
+/*
+  accordion-menu
+——————————————————————————————*/
+
+.accordion-menu {
+  padding-bottom: 3em;
+}
+
+.accordion-menu ul, .accordion-menu li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+#accordion_menu > li {
+  border: #ccc 1px solid;
+  margin-bottom: 10px;
+}
+
+#accordion_menu a {
+  color: #666;
+  @include fontsize(14);
+}
+
+#accordion_menu a[data-toggle="collapse"] {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  position: relative;
+}
+
+#accordion_menu a[data-toggle="collapse"]:hover {
+  background: #e7e7e7;
+}
+
+#accordion_menu a[data-toggle="collapse"]::after {
+  content:"";
+  display: block;
+  width: 8px;
+  height: 8px;
+  border-top: #666 1px solid;
+  border-right: #666 1px solid;
+  position: absolute;
+  right: 15px;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+#accordion_menu a[aria-expanded=false]::after {
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  transition-duration: 0.3s;
+}
+
+#accordion_menu a[aria-expanded=true]::after {
+  -webkit-transform: rotate(135deg);
+  -ms-transform: rotate(135deg);
+  transform: rotate(135deg);
+  transition-duration: 0.3s;
+}
+[id^="menu"] li {
+  padding: 10px 10px 10px 20px;
+}
+
+/*
+  input-group (item search)
+——————————————————————————————*/
+
+.input-group {
+  padding-bottom: 3em;
+  
+  .form-control {
+    @include fontsize(14);
+    height: 3em;
+  }
+  
+  .btn-secondary {
+    padding: 0 1.2em;
+  
+    .fa-search {
+      @include fontsize(12);   
+    }
+  }
+}
+
+/*——————————————————————————————
+
+  jQuery
+
+——————————————————————————————*/
+
+.back-to-top {
+  background-color: #ececec;
+  border-radius: 50%;
+  bottom: 90px;
+  opacity: .9;
+  position: fixed;
+  right: 30px;
+  
+  .fa-chevron-up {
+    @include fontsize(18);
+    color: #000;
+    padding: 1em;
+  }
+}
